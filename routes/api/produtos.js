@@ -76,6 +76,10 @@ router.post('/AdicionarProduto', (req,res) => {
             quantidade_em_estoque: req.body.quantidade_em_estoque,
             valor: req.body.valor
         })
+        if (produto.quantidade_em_estoque > 4294967295 || produto.valor > 4294967295) {
+            res.send("'Quantidade em estoque' ou 'Valor' não podem ser maiores do que 4294967295")
+            return
+        }
         Produto.addNew(produto, (err, data) => {
             if (err) {
                 res.status(500).send({ message : err.message || "Server Error"})
@@ -91,6 +95,10 @@ router.patch('/AlterarProduto/:id', (req,res) => {
         res.status(400).send({ message: "Conteúdo não pode estar vazio"})
     } else {
         const update = new Produto(req.body)
+        if (update.quantidade_em_estoque > 4294967295 || update.valor > 4294967295) {
+            res.send("'Quantidade em estoque' ou 'Valor' não podem ser maiores do que 4294967295")
+            return
+        }
         for (const [chave, valor] of Object.entries(update)){
             if (!valor){
                 delete update[chave]
