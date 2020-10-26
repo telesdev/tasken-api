@@ -2,6 +2,10 @@
 
 ## Processo de Desenvolvimento
 
+### Banco de dados utilizado
+
+`MySQL`
+
 ### Dependências utilizadas
 
 `body-parser`
@@ -12,6 +16,10 @@
 
 `nodemon` (dependência de desenvolvimento)
 
+### DB
+
+`tasken-api.sql`
+
 ### Sripts
 
 `"start" : "start node server"`
@@ -20,12 +28,14 @@
 
 ### Resumo
 
-1. Alteração do `"main"` em `package.json` de `"index.js"` para `"server.js"`
+1. `npm init`
 
-2. Criação do arquivo `server.js` na raiz do projeto, junto com seu BoilerPlate
+2. Alteração do `"main"` em `package.json` de `"index.js"` para `"server.js"`
 
-3. Escrita do arquivo de de configuração e conexão do banco de dados, junto com o script de criar a tabela (caso não haja)
+3. Criação do arquivo `server.js` na raiz do projeto, junto com seu BoilerPlate
 
-4. Criação do modelo de `'produtos'` com o construtor e as queries
+4. Escrita do arquivo de de configuração e conexão do banco de dados, junto com o script de criar a tabela (caso não haja)
 
-5. Criação das rotas de `'produtos'` com os métodos para utilização das queries
+5. Criação do modelo de `'produtos'` com o construtor e as queries
+
+6. Criação das rotas de `'produtos'` com os métodos para utilização das queries
