@@ -34,7 +34,7 @@
 
 3. Criação do arquivo `server.js` na raiz do projeto, junto com seu BoilerPlate
 
-4. Escrita do arquivo de de configuração e conexão do banco de dados, junto com o script de criar a tabela (caso não haja)
+4. Escrita do arquivo de de configuração e conexão do banco de dados, junto com o script de criar a tabela
 
 5. Criação do modelo de `'produtos'` com o construtor e as queries
 

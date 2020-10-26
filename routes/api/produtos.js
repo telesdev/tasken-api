@@ -2,6 +2,9 @@ const express = require("express")
 const router = express.Router()
 const Produto = require('../../models/produtos')
 
+// @rota     GET /produto
+// @desc     LISTAR produto
+// @acesso   Público
 router.get('/BuscarProdutos', (req, res) => {
     Produto.getAll((err, data) => {
         if (err) {
@@ -12,6 +15,9 @@ router.get('/BuscarProdutos', (req, res) => {
     })
 })
 
+// @rota     GET /produto:id
+// @desc     DETALHAR produto
+// @acesso   Público
 router.get('/BuscarProdutoPorId/:id', (req, res) => {
     Produto.getById(req.params.id, (err, data) => {
         if (err) {
@@ -26,6 +32,9 @@ router.get('/BuscarProdutoPorId/:id', (req, res) => {
     })
 })
 
+// @rota     GET /produto
+// @desc     LISTAR quantidade de produtos
+// @acesso   Público
 router.get('/ObterQuantidadeProdutos', (req, res) => {
     Produto.getProductQuantity((err, data) => {
         if (err) {
@@ -36,6 +45,9 @@ router.get('/ObterQuantidadeProdutos', (req, res) => {
     })
 })
 
+// @rota     GET /produto
+// @desc     DETALHAR produto com menor quantidade
+// @acesso   Público
 router.get('/ObterProdutoComMenorEstoque', (req,res) => {
     Produto.getMin((err, data) => {
         if (err) {
@@ -46,6 +58,9 @@ router.get('/ObterProdutoComMenorEstoque', (req,res) => {
     })
 })
 
+// @rota     GET /produto
+// @desc     DETALHAR produto com maior quantidade
+// @acesso   Público
 router.get('/ObterProdutoComMaiorEstoque', (req,res) => {
     Produto.getMax((err, data) => {
         if (err) {
@@ -56,6 +71,9 @@ router.get('/ObterProdutoComMaiorEstoque', (req,res) => {
     })
 })
 
+// @rota     GET /produto
+// @desc     DETALHAR produto com quantidade menor que 5
+// @acesso   Público
 router.get('/ObterProdutosSemEstoque', (req,res) => {
     Produto.getOutOfStock((err, data) => {
         if (err) {
@@ -66,6 +84,9 @@ router.get('/ObterProdutosSemEstoque', (req,res) => {
     })
 })
 
+// @rota     POST /produto
+// @desc     CRIAR produto
+// @acesso   Público
 router.post('/AdicionarProduto', (req,res) => {
     if (!req.body) {
         res.status(400).send({ message: "Conteúdo não pode estar vazio"})
@@ -90,6 +111,9 @@ router.post('/AdicionarProduto', (req,res) => {
     }
 })
 
+// @rota     PATCH /produto:id
+// @desc     EDITAR produto
+// @acesso   Público
 router.patch('/AlterarProduto/:id', (req,res) => {
     if (!req.body) {
         res.status(400).send({ message: "Conteúdo não pode estar vazio"})
@@ -121,6 +145,9 @@ router.patch('/AlterarProduto/:id', (req,res) => {
     }
 })
 
+// @rota     DELETE /produto:id
+// @desc     DELETAR produto
+// @acesso   Público
 router.delete('/DeletarProduto/:id', (req,res) => {
     Produto.delete(req.params.id, (err, data) => {
         if (err) {
